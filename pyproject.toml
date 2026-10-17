@@ -1,0 +1,14 @@
+[project]
+name = "time-ordered-key-value-store"
+version = "0.1.0"
+description = "In-memory key-value store indexed by timestamp for time range queries and recent entry retrieval"
+requires-python = ">=3.10"
+dependencies = []
+readme = "README.md"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
