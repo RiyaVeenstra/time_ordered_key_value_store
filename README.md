@@ -27,3 +27,10 @@ The trade-off: keys are not unique. Inserting the same key twice creates two rec
 - Tied timestamps at a range boundary are included: `range(5, 5)` returns all records at `5`, on both sides.
 - `latest(n)` returns records newest-last (insertion order). Call `reversed()` if you need newest-first.
 - For deterministic tests, pass a fake `clock` function to the constructor. The default clock uses `time.time()`.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
